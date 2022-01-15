@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+// --------------------------------------------
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:rgb(52, 51, 53) ;
+    // background: linear-gradient(rgb(85, 85, 85), rgb(22, 22, 22)) ;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.rope {
+    background: rgb(32, 32, 32);
+    height: 250px;
+    width: 3px;
+}
+.plinth {
+    width: 30px;
+    height: 30px;
+    background: rgb(44, 41, 41);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.lamp {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid rgb(226, 228, 129);
+    &::before {
+        content: '';
+        position: absolute;
+        width: 43px;
+        height: 10px;
+        background: rgb(39, 39, 39);
+        top: -5%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        z-index: 1;
+        border-top: 1px solid black;
+        // box-shadow: inset 0px 1px 0px rgb(0, 0, 0);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.light {
+    width: 60px;
+    height: 60px;
+    background: rgba(218, 218, 142, 0.404);
+    border-radius: 50%;
+    transition: 2.5s;
+    filter: blur(7px);
+    position: absolute;
+    z-index: 10;
+    &.active {
+        width: 300px;
+        height: 300px;
+        background: yellow;
+        filter: blur(120px);
+        transition: 3.5s;
+        animation: sizing 10.5s infinite 3s;
+    }
+}
+
+@keyframes sizing {
+    0% {
+        width: 300px;
+        height: 300px;
+    }
+    50% {
+        width: 250px;
+        height: 250px;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+    }
+}
+.btns {
+    position: absolute;
+    top: 80%;
+    left: 10%;
+}
+.btn {
+    width: 60px;
+    height: 60px;
+    background: rgb(44, 44, 44);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    span {
+        color: turquoise;
+    }
+    p {
+        color: rgb(212, 68, 68);
+    }
+    box-shadow: inset 0px 1px 2px rgb(97, 97, 97), inset 0px -7px 5px rgb(19, 19, 19);
+}
+.btn_on {
+    border: none;
+}
+.btn_off {
+    position: relative;
+    border: none;
+    left: 110%;
+    top: -30px;
+    .btn_active {
+        border: 2px solid turquoise;
+    }
+}
+.btn_active {
+    box-shadow: inset 0px 5px 5px rgb(19, 19, 19), inset 0px -1px 2px rgb(97, 97, 97);
+    transition: 2s;
+}
+#audio {
+    display: none;
+}
